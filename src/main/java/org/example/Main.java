@@ -22,7 +22,7 @@ public class Main {
     }}
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
        // System.out.println("Hello world!");
-            createT();
+            createTable();
 
 
         String query=" select * from JDBC ";
