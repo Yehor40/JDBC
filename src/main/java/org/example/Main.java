@@ -4,7 +4,7 @@ public class Main {
     static final String url="jdbc:mysql://localhost:3306/JDBC";
     static final String user = "root";
     static final String pass = "";
-    public static void createT(){
+    public static void createTable(){
         try(Connection con = DriverManager.getConnection(url, user, pass);
             Statement st = con.createStatement();
         ) {
