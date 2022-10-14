@@ -21,7 +21,9 @@ public class Main {
         System.out.println("Choose:\n " +
                 "1:create \n " +
                 "2:select \n " +
-                "3:insert\n");
+                "3:insert\n"+
+                 "4:call\n"
+        );
         int flag = sc.nextInt() ;
 
         switch (flag){
@@ -34,6 +36,9 @@ public class Main {
             case  3:
                 insert();
                 break;
+            case  4:
+                call();
+                break;
         }
 
 
@@ -44,8 +49,25 @@ public class Main {
 
     public static void call()throws ClassNotFoundException,SQLException {
         //callable statement
+        String query = "{CALL selectAll(?)}";
+        ResultSet rs;
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, user, pass);
+        CallableStatement st = con.prepareCall(query);
+        //
+        //
+        st.setInt(1,1);
+        rs = st.executeQuery();
+
+        String id = rs.getString("id");
+
+        String name = rs.getString("text");
+        String num = rs.getString("integr");
+
+        System.out.println(id+"\t"+name+"\t"+num);
+        System.out.println("procedure called");
+        st.close();
+        con.close();
 
     }
     public static void insert() throws ClassNotFoundException,SQLException {
