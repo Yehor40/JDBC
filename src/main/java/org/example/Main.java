@@ -49,16 +49,16 @@ public class Main {
 
     public static void call()throws ClassNotFoundException,SQLException {
         //callable statement
-        String query = "{CALL selectAll(?)}";
+        String query = "{CALL selectAll()}";
         ResultSet rs;
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, user, pass);
         CallableStatement st = con.prepareCall(query);
         //
         //
-        st.setInt(1,1);
+        // st.setInt(1,1);
         rs = st.executeQuery();
-
+        rs.next();
         String id = rs.getString("id");
 
         String name = rs.getString("text");
