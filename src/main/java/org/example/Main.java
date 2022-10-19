@@ -51,6 +51,7 @@ public class Main {
                 call();
                 break;
         }
+        sc.close();
     }
 
 
