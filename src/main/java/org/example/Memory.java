@@ -19,6 +19,7 @@ public class Memory {
         for (int i = 0; i < 1_000_000; i++) {
             Date date = new Date();
             dateList.add(date);
+
         }
         System.out.println(" Total memory after: "+runtime.totalMemory());
         System.out.println(" Free memory after: "+runtime.freeMemory());
